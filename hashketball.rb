@@ -1,3 +1,4 @@
+require "pry"
 # Write your code below game_hash
 def game_hash
   {
@@ -126,4 +127,49 @@ def game_hash
   }
 end
 
-# Write code here
+def num_points_scored player
+  game_hash.each do |k, v|
+    #binding.pry
+    v[:players].each do |n| 
+      if n[:player_name] == player
+        return n[:points]
+      end
+    end
+  end
+end
+
+def shoe_size player
+  game_hash.each do |k, v|
+    #binding.pry
+    v[:players].each do |n| 
+      if n[:player_name] == player
+        return n[:shoe]
+      end
+    end
+  end
+end
+
+def team_colors team_name
+  game_hash.each do |k, v|
+    if v[:team_name] == team_name
+      return v[:colors] 
+    end
+    #binding.pry
+  end
+end
+
+def player_stats player
+  game_hash.each do |k, v|
+    #binding.pry
+    v[:players].each do |n| 
+      if n[:player_name] == player
+        return n
+      end
+    end
+  end
+end
+
+#num_points_scored "Alan Anderson"
+
+
+#v[:players][0][:points]
